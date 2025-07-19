@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Linh 💗 Đạt</title>
+    <title>Đếm Ngày Tình Yêu</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;600;700&family=Poppins:wght@300;400;600&display=swap');
         
@@ -267,7 +267,7 @@
     
     <div class="container">
         <div class="love-card">
-            <h1 class="title">💕 Linh 💗 Đạt 💕</h1>
+            <h1 class="title">💕 Đếm Ngày Tình Yêu 💕</h1>
             
 
             
@@ -318,8 +318,10 @@
         function calculateTimeDifference() {
             if (!startDate) return;
             
+            // Get current time in Vietnam timezone (UTC+7)
             const now = new Date();
-            const diffTime = now - startDate;
+            const vietnamTime = new Date(now.getTime() + (7 * 60 * 60 * 1000) + (now.getTimezoneOffset() * 60 * 1000));
+            const diffTime = vietnamTime - startDate;
             
             if (diffTime < 0) return;
             
@@ -402,8 +404,8 @@
         setInterval(createFloatingHeart, 2000);
         setInterval(createSparkles, 5000);
         
-        // Auto-start counting from January 1, 2025
-        startDate = new Date('2025-01-01');
+        // Auto-start counting from 00:00:00 January 1, 2025 Vietnam time
+        startDate = new Date('2025-01-01T00:00:00+07:00');
         counterInterval = setInterval(calculateTimeDifference, 1000);
         calculateTimeDifference();
     </script>
