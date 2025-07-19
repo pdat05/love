@@ -15,17 +15,34 @@
         
         body {
             font-family: 'Poppins', sans-serif;
-            background: linear-gradient(-45deg, #ff6b9d, #c44569, #f8b500, #ff9ff3);
-            background-size: 400% 400%;
-            animation: gradientShift 15s ease infinite;
+            background: 
+                linear-gradient(rgba(255, 107, 157, 0.7), rgba(196, 69, 105, 0.7)),
+                url('https://i.ibb.co/S4NtYfkz/c0d5422a059db3c3ea8c.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
             min-height: 100vh;
             overflow-x: hidden;
+            animation: backgroundPulse 10s ease-in-out infinite alternate;
         }
         
-        @keyframes gradientShift {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
+        @keyframes backgroundPulse {
+            0% { 
+                background: 
+                    linear-gradient(rgba(255, 107, 157, 0.6), rgba(196, 69, 105, 0.6)),
+                    url('https://i.ibb.co/S4NtYfkz/c0d5422a059db3c3ea8c.jpg');
+                background-size: cover;
+                background-position: center;
+                background-attachment: fixed;
+            }
+            100% { 
+                background: 
+                    linear-gradient(rgba(255, 107, 157, 0.8), rgba(196, 69, 105, 0.8)),
+                    url('https://i.ibb.co/S4NtYfkz/c0d5422a059db3c3ea8c.jpg');
+                background-size: cover;
+                background-position: center;
+                background-attachment: fixed;
+            }
         }
         
         .hearts-bg {
@@ -84,7 +101,7 @@
             font-size: 3.5rem;
             color: white;
             margin-bottom: 30px;
-            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
             animation: titlePulse 2s ease-in-out infinite alternate;
         }
         
@@ -103,6 +120,7 @@
             font-size: 1.2rem;
             margin-bottom: 15px;
             font-weight: 300;
+            text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
         }
         
         .date-input {
@@ -159,7 +177,7 @@
             font-weight: 600;
             color: white;
             display: block;
-            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
         }
         
         .counter-label {
@@ -168,6 +186,7 @@
             text-transform: uppercase;
             letter-spacing: 1px;
             margin-top: 5px;
+            text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
         }
         
         .love-message {
@@ -184,7 +203,7 @@
             font-size: 1.8rem;
             color: white;
             line-height: 1.4;
-            text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
+            text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
         }
         
         .floating-hearts {
@@ -236,6 +255,8 @@
             }
         }
         
+
+        
         @media (max-width: 768px) {
             .title {
                 font-size: 2.5rem;
@@ -258,6 +279,8 @@
             .love-text {
                 font-size: 1.5rem;
             }
+            
+
         }
     </style>
 </head>
@@ -265,11 +288,12 @@
     <div class="hearts-bg" id="heartsBackground"></div>
     <div class="floating-hearts" id="floatingHearts"></div>
     
+    <!-- Nhạc nền -->
+    <iframe src="https://www.nhaccuatui.com/mh/background/UZzLPJ0YaQlT" width="1" height="1" frameborder="0" allowfullscreen allow="autoplay"></iframe>
+    
     <div class="container">
         <div class="love-card">
             <h1 class="title">💕 Đếm Ngày Tình Yêu 💕</h1>
-            
-
             
             <div class="counter-display" id="counterDisplay">
                 <div class="counter-grid">
@@ -341,6 +365,7 @@
                 document.getElementById('loveText').textContent = randomMessage;
             }
         }
+
         
         // Create floating background hearts
         function createBackgroundHearts() {
